@@ -277,10 +277,6 @@ async function accountLogin(state, enableCommands = [], prefix, admin = []) {
           let blacklist = (JSON.parse(fs.readFileSync('./data/history.json', 'utf-8')).find(blacklist => blacklist.userid === userid) || {}).blacklist || [];
           let hasPrefix = (event.body && aliases((event.body || '')?.trim().toLowerCase().split(/ +/).shift())?.hasPrefix == false) ? '' : prefix;
           let [command, ...args] = ((event.body || '').trim().toLowerCase().startsWith(hasPrefix?.toLowerCase()) ? (event.body || '').trim().substring(hasPrefix?.length).trim().split(/\s+/).map(arg => arg.trim()) : []);
-          if (hasPrefix && aliases(command)?.hasPrefix === false) {
-            api.sendMessage(`Invalid usage this command doesn't need a prefix`, event.threadID, event.messageID);
-            return;
-          }
           if (event.body && aliases(command)?.name) {
             const role = aliases(command)?.role ?? 0;
             const isAdmin = config?.[0]?.masterKey?.admin?.includes(event.senderID) || admin.includes(event.senderID);
