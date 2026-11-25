@@ -11,15 +11,15 @@ const HISTORY_TTL = 30 * 60 * 1000; // la mémoire est oubliée après 30 min d'
 
 const histories = new Map();
 const lastCall = new Map();
-const TRIGGER = /^\s*(ai|ia|bot|davbot)\s*[,:;!?.]+\s*([\s\S]*)$/i; // ex : "Davbot, salut"
+const TRIGGER = /^\s*(ai|ia|bot|davbot|chatgpt|gpt|gemini|copilot|claude|deepseek|grok|meta)\s*[,:;!?.]+\s*([\s\S]*)$/i; // ex : "Davbot, salut"
 
 module.exports.config = {
   name: 'ai',
   version: '1.0.0',
   role: 0,
   hasPrefix: false,
-  aliases: ['ia', 'bot', 'davbot'],
-  description: "Pose une question à l'IA Davbot (répond aussi aux images). Sans préfixe : ai / ia / bot / davbot",
+  aliases: ['ia', 'bot', 'davbot', 'chatgpt', 'gpt', 'gemini', 'copilot', 'claude', 'deepseek', 'grok'],
+  description: "Pose une question à l'IA Davbot (répond aussi aux images). Sans préfixe : ai / ia / bot / davbot / chatgpt / gemini...",
   usage: 'ai <question> | ai reset (efface la mémoire) | répondre à une photo avec : ai <question>',
   credits: 'Davbot',
   cooldown: 3,

@@ -5,7 +5,7 @@ module.exports.config = {
   name: 'ping',
   version: '1.0.0',
   role: 0,
-  hasPrefix: true,
+  hasPrefix: false,
   aliases: ['uptime'],
   description: 'Affiche la latence du bot et son temps de fonctionnement',
   usage: 'ping | uptime',
